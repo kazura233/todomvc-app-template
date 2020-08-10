@@ -1,25 +1,66 @@
-import React from 'react'
+/*
+ * @Author: kazura233
+ * @Date: 2020-07-28 16:39:53
+ * @Last Modified by: kazura233
+ * @Last Modified time: 2020-07-28 23:19:28
+ */
 
-const TodoFooter = () => {
+import React from 'react'
+import classnames from 'classnames'
+import { ALL_TODOS, ACTIVE_TODOS, COMPLETED_TODOS } from '../constants'
+
+export interface TodoFooterProps {
+  activeCount: number
+  completedCount: number
+  clearCompleted: () => void
+  nowShowing: string
+  setNowShowing: (nowShowing: string) => void
+}
+
+const TodoFooter = (props: TodoFooterProps) => {
+  const { activeCount, completedCount, clearCompleted, nowShowing, setNowShowing } = props
+
   return (
     <footer className="footer">
       <span className="todo-count">
-        <strong>0</strong> item left
+        <strong>{activeCount}</strong> item left
       </span>
       <ul className="filters">
         <li>
-          <a className="selected" href="#/">
+          <a
+            className={classnames({ selected: nowShowing === ALL_TODOS })}
+            onClick={() => setNowShowing(ALL_TODOS)}
+            href="#/"
+          >
             All
           </a>
         </li>
         <li>
-          <a href="#/active">Active</a>
+          <a
+            className={classnames({ selected: nowShowing === ACTIVE_TODOS })}
+            onClick={() => setNowShowing(ACTIVE_TODOS)}
+            href="#/active"
+          >
+            Active
+          </a>
         </li>
         <li>
-          <a href="#/completed">Completed</a>
+          <a
+            className={classnames({ selected: nowShowing === COMPLETED_TODOS })}
+            onClick={() => setNowShowing(COMPLETED_TODOS)}
+            href="#/completed"
+          >
+            Completed
+          </a>
         </li>
       </ul>
-      <button className="clear-completed">Clear completed</button>
+      <button
+        className="clear-completed"
+        style={{ display: completedCount > 0 ? 'inline-block' : 'none' }}
+        onClick={() => clearCompleted()}
+      >
+        Clear completed
+      </button>
     </footer>
   )
 }
