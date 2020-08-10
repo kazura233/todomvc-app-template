@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import './App.css'
+import React, { useState } from 'react'
 import TodoFooter from './components/TodoFooter'
 import TodoList from './components/TodoList'
 import TodoItem from './components/TodoItem'
 import TodoHeader from './components/TodoHeader'
+import { v4 as uuid } from 'uuid'
 
 function App() {
   const [dataSource] = useState([
-    { id: 0, value: 'one', checked: true },
-    { id: 1, value: 'two', checked: false },
-    { id: 2, value: 'three', checked: false },
+    { id: uuid(), value: 'one', checked: true },
+    { id: uuid(), value: 'two', checked: false },
+    { id: uuid(), value: 'three', checked: false },
   ])
-
-  useEffect(() => {
-    require('todomvc-common/base')
-  }, [])
 
   return (
     <>

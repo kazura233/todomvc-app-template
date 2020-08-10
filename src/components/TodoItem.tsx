@@ -1,7 +1,8 @@
 import React from 'react'
+import classnames from 'classnames'
 
 export interface Item {
-  id: number
+  id: string
   value: string
   checked: boolean
 }
@@ -13,7 +14,12 @@ export interface TodoItemProps extends Item {
 const TodoItem = (props: TodoItemProps) => {
   const { value, checked } = props
   return (
-    <li className="completed">
+    <li
+      className={classnames({
+        completed: true,
+        editing: false,
+      })}
+    >
       <div className="view">
         <input className="toggle" type="checkbox" defaultChecked={checked} />
         <label>{value}</label>
