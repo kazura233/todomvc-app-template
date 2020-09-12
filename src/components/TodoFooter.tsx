@@ -20,10 +20,12 @@ export interface TodoFooterProps {
 const TodoFooter = (props: TodoFooterProps) => {
   const { activeCount, completedCount, clearCompleted, nowShowing, setNowShowing } = props
 
+  const pluralize = (word: string, count: number) => word + (count === 1 ? '' : 's')
+
   return (
     <footer className="footer">
       <span className="todo-count">
-        <strong>{activeCount}</strong> item left
+        <strong>{activeCount}</strong> {pluralize('item', activeCount)} left
       </span>
       <ul className="filters">
         <li>
