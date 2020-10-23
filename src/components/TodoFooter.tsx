@@ -17,7 +17,7 @@ export interface TodoFooterProps {
   setNowShowing: (nowShowing: string) => void
 }
 
-const TodoFooter = (props: TodoFooterProps) => {
+const TodoFooter: React.FC<TodoFooterProps> = (props) => {
   const { activeCount, completedCount, clearCompleted, nowShowing, setNowShowing } = props
 
   const pluralize = (word: string, count: number) => word + (count === 1 ? '' : 's')

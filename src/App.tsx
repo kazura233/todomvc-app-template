@@ -19,7 +19,7 @@ const routerMap = new Map([
   ['/completed', COMPLETED_TODOS],
 ])
 
-function App() {
+const App = () => {
   /**
    * 当前页面所展示的类目
    */

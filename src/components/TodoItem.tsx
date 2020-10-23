@@ -22,7 +22,7 @@ export interface TodoItemProps extends Item {
   destroy: (id: string) => void
 }
 
-const TodoItem = (props: TodoItemProps) => {
+const TodoItem: React.FC<TodoItemProps> = (props) => {
   const { id, value, checked, save, toggle, destroy } = props
 
   const [isEditing, setIsEditing] = useState(false)

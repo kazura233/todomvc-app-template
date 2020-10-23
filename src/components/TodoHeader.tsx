@@ -12,7 +12,7 @@ export interface TodoHeaderProps {
   addItem: (value: string) => void
 }
 
-const TodoHeader = (props: TodoHeaderProps) => {
+const TodoHeader: React.FC<TodoHeaderProps> = (props) => {
   const { addItem } = props
   const [value, setValue] = useState('')
 
