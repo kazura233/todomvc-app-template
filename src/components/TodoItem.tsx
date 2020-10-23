@@ -11,7 +11,7 @@ export interface TodoItemProps extends Item {
   index: number
 }
 
-const TodoItem = (props: TodoItemProps) => {
+const TodoItem: React.FC<TodoItemProps> = (props) => {
   const { value, checked } = props
   return (
     <li

@@ -1,11 +1,12 @@
 import React from 'react'
+import { Item } from './TodoItem'
 
-export interface TodoListProps<T> {
-  dataSource?: T[]
-  renderItem?: (item: T, index: number) => React.ReactNode
+export interface TodoListProps {
+  dataSource?: Array<Item>
+  renderItem?: (item: Item, index: number) => React.ReactNode
 }
 
-function TodoList<T>(props: TodoListProps<T>) {
+const TodoList: React.FC<TodoListProps> = (props) => {
   const { dataSource = [], renderItem = () => null } = props
 
   return (

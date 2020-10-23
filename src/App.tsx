@@ -5,7 +5,7 @@ import TodoItem from './components/TodoItem'
 import TodoHeader from './components/TodoHeader'
 import { v4 as uuid } from 'uuid'
 
-function App() {
+const App = () => {
   const [dataSource] = useState([
     { id: uuid(), value: 'one', checked: true },
     { id: uuid(), value: 'two', checked: false },
